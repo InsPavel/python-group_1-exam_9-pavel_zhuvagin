@@ -1,28 +1,39 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter} from 'react-router-dom'
+import {Switch, Route} from 'react-router'
+import {tokenLogin} from "./store/actions/token-login";
+import Layout from "./components/Layout/Layout";
+import Login from "./containers/Login/Login";
+import Logout from "./containers/Logout/Logout";
+import ProductList from "./containers/ProductList/ProductList";
+import {connect} from "react-redux";
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+     componentDidMount(){
+        this.props.tokenLogin();
+    }
+
+    render() {
+        return (
+            <div>
+                <BrowserRouter>
+                    <Layout>
+                        <Switch>
+                              <Route path='/login' component={Login} />
+                              <Route path='/logout' component={Logout} />
+                              <Route path='/' component={ProductList}/>
+                        </Switch>
+                    </Layout>
+                </BrowserRouter>
+            </div>
+        );
+    }
 }
 
-export default App;
+const mapStateToProps = state => state.app;
+const mapDispatchToProps = dispatch => ({
+    tokenLogin: () => dispatch(tokenLogin()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
