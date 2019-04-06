@@ -8,6 +8,7 @@ import Login from "./containers/Login/Login";
 import Logout from "./containers/Logout/Logout";
 import ProductList from "./containers/ProductList/ProductList";
 import {connect} from "react-redux";
+import ProductDetail from "./containers/ProductDetail/ProductDetail";
 
 class App extends Component {
      componentDidMount(){
@@ -20,6 +21,7 @@ class App extends Component {
                 <BrowserRouter>
                     <Layout>
                         <Switch>
+                              <Route path='/products/:id' component={ProductDetail} />
                               <Route path='/login' component={Login} />
                               <Route path='/logout' component={Logout} />
                               <Route path='/' component={ProductList}/>

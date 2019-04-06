@@ -30,7 +30,6 @@ class Menu extends Component{
             <div className={(this.state.collapse ? "collapse" : '') +  " navbar-collapse"} id="navbarNav">
                 <ul className="navbar-nav mr-auto">
                     <MenuItem to="/">Каталог товаров</MenuItem>
-                    <MenuItem to="/">Просмотр товара</MenuItem>
                 </ul>
                 <ul className='navbar-nav ml-auto'>
                     {user_id ? [
