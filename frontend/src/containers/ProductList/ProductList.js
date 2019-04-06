@@ -11,9 +11,9 @@ class ProductList extends  Component {
 
     render() {
         return <Fragment>
-            <div className='row'>
+            <div className='row mt-5'>
                 {this.props.products.map(product => {
-                    return <div className='col col-3' key={product.id}>
+                    return <div className='col col-4' key={product.id}>
                         <Card product={product} key={product.id}/>
                     </div>
                 })}

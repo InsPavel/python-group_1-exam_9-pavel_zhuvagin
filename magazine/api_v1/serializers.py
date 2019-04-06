@@ -25,16 +25,16 @@ class CategorySerializer(serializers.ModelSerializer):
 class PhotoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Photo
-        fields = ('id', 'product')
+        fields = ('id', 'product_photo')
 
 
 class ProductSerializer(serializers.ModelSerializer):
     categories = InlineCategorySerializer(many=True, read_only=True)
-    product = InlinePhotoSerializer(many=True, read_only=True)
+    product_photo = InlinePhotoSerializer(many=True, read_only=True)
 
     class Meta:
         model = Product
-        fields = ('id', 'name', 'description', 'created_at', 'product', 'categories', 'price')
+        fields = ('id', 'name', 'description', 'created_at', 'product_photo', 'categories', 'price')
 
 
 class OrderSerializer(serializers.ModelSerializer):
