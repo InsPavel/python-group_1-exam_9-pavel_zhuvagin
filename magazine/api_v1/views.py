@@ -1,5 +1,5 @@
-from webapp.models import Product, Foto, Category, Order
-from api_v1.serializers import ProductSerializer, FotoSerializer, CategorySerializer, OrderSerializer, AuthTokenSerializer
+from webapp.models import Product, Photo, Category, Order
+from api_v1.serializers import ProductSerializer, PhotoSerializer, CategorySerializer, OrderSerializer, AuthTokenSerializer
 from rest_framework import viewsets
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken, APIView
@@ -53,9 +53,9 @@ class ProductViewSet(BaseViewSet):
     serializer_class = ProductSerializer
 
 
-class FotoViewSet(BaseViewSet):
-    queryset = Foto.objects.all()
-    serializer_class = FotoSerializer
+class PhotoViewSet(BaseViewSet):
+    queryset = Photo.objects.all()
+    serializer_class = PhotoSerializer
 
 
 class CategoryViewSet(BaseViewSet):

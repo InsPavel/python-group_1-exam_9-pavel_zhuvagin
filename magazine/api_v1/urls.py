@@ -4,7 +4,7 @@ from api_v1 import views
 
 router = routers.DefaultRouter()
 router.register(r'products', views.ProductViewSet)
-router.register(r'fotos', views.FotoViewSet)
+router.register(r'photos', views.PhotoViewSet)
 router.register(r'categories', views.CategoryViewSet)
 router.register(r'orders', views.OrderViewSet)
 

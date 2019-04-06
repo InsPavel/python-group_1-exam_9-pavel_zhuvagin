@@ -1,6 +1,6 @@
 from rest_framework.exceptions import ValidationError
 from rest_framework import serializers
-from webapp.models import Product, Foto, Category, Order
+from webapp.models import Product, Photo, Category, Order
 from rest_framework.authtoken.models import Token
 
 
@@ -16,18 +16,19 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'description')
 
 
-class FotoSerializer(serializers.ModelSerializer):
+class PhotoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Foto
-        fields = ('id', 'product', 'foto')
+        model = Photo
+        fields = ('id', 'product', 'photo')
 
 
 class ProductSerializer(serializers.ModelSerializer):
     categories = InlineCategorySerializer(many=True, read_only=True)
+    photo_url = serializers.SerializerMethodField()
 
     class Meta:
         model = Product
-        fields = ('id', 'name', 'description', 'created_at', 'categories', 'price')
+        fields = ('id', 'name', 'description', 'created_at', 'photo_url', 'categories', 'price')
 
 
 class OrderSerializer(serializers.ModelSerializer):

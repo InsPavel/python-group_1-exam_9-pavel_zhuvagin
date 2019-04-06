@@ -49,7 +49,7 @@ class Migration(migrations.Migration):
             name='Foto',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('foto', models.ImageField(upload_to='fotos')),
+                ('foto', models.ImageField(upload_to='photos')),
                 ('product', models.ForeignKey(on_delete=django.db.models.deletion.PROTECT, related_name='product', to='webapp.Product')),
             ],
         ),
