@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from webapp.models import Product, Foto, Category, Order
+
+admin.site.register(Product)
+admin.site.register(Foto)
+admin.site.register(Category)
+admin.site.register(Order)

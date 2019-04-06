@@ -9,6 +9,9 @@ class Product(models.Model):
     categories = models.ManyToManyField('Category', related_name='categories', blank=True)
     price = models.DecimalField(max_digits=8, decimal_places=2)
 
+    def __str__(self):
+        return self.name
+
 
 class Foto(models.Model):
     product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='product')
@@ -19,6 +22,9 @@ class Category(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(max_length=2000, null=True, blank=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Order(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -27,5 +33,8 @@ class Order(models.Model):
     adress = models.CharField(max_length=255, null=True, blank=True)
     comment = models.TextField(max_length=2000, null=True, blank=True)
     created_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return "User %s products %s" % (self.user, self.products)
 
 
