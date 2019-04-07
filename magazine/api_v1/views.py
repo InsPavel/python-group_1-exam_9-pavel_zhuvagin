@@ -1,5 +1,6 @@
 from webapp.models import Product, Photo, Category, Order
-from api_v1.serializers import ProductSerializer, PhotoSerializer, CategorySerializer, OrderSerializer, AuthTokenSerializer
+from api_v1.serializers import ProductSerializer, PhotoSerializer, CategorySerializer, OrderSerializer,\
+    AuthTokenSerializer
 from rest_framework import viewsets
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken, APIView
@@ -38,7 +39,7 @@ class TokenloginView(APIView):
             'is_staff': user.is_staff,
             'user_id': user.id,
         })
-
+    
 
 class BaseViewSet(viewsets.ModelViewSet):
     def get_permissions(self):

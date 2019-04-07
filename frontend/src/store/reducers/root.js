@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
     auth: authReducer,
     app: tokenLoginReducer,
     productList: productListReducer,
-    productDetail: productDetailReducer
+    productDetail: productDetailReducer,
 });
 
 export default rootReducer;
